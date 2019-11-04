@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br" id="html">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script type="text/javascript" src="./grafico.js"></script>
+    <title>Graficos</title>
+</head>
+
+<body>
+    <canvas class="line-chart"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+
+    <input id="Remover valor" type="button" value="Remover valor" onclick="removeData(chartGraph, 0);" />
+    <input id="Adicionar valor" type="button" value="Adicionar valor" onclick="addData(chartGraph, '01/10', '30', 0);" />
+    <p></p>
+
+    <script>
+    
+        var ctx = document.getElementsByClassName("line-chart");
+
+        // type, data, options
+        var chartGraph = new Chart(ctx, {
+
+            // Tipo de gráfico
+            type: 'line',
+            data:{
+
+                // Dados X
+                labels: ["01/10", "02/10", "03/10", "04/10", "05/10", "06/10", "07/10", "08/10"],
+
+                // Dados Y do sensor 1
+                datasets: [
+                {
+                    label: "Sensor 1",
+                    data: [30,27,29,25,31,31,35],
+                    borderWidht: 6,
+                    borderColor: 'rgba(77,155,253,0.85)',
+                    backgroundColor: 'transparent'
+                },
+                
+                // Dados Y do sensor 2
+                {
+                    label: "Sensor 2",
+                    data: [20,37,19,15,21,31,25],
+                    borderWidht: 6,
+                    borderColor: 'rgba(177,55,153,0.85)',
+                    backgroundColor: 'transparent'
+                },
+
+                 // Dados Y do sensor 3
+                 {
+                    label: "Sensor 3",
+                    data: [10,17,39,5,1,21,30],
+                    borderWidht: 6,
+                    borderColor: 'rgba(77,155,53,0.85)',
+                    backgroundColor: 'transparent'
+                },
+                ]
+            },
+
+            // Opções "globais" do gráfico
+            options: {
+                title: {
+                    display: true,
+                    fontSize: 20,
+                    text: "Relatório de água"
+                }
+            }
+        });
+
+    </script>
+        
+</body>
+
